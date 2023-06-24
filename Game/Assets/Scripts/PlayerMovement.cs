@@ -16,6 +16,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask whatIsGround;
     [SerializeField] private bool grounded;
     [SerializeField] private float groundDrag;
+    [SerializeField] private float jumpForce;
+    [SerializeField] private float jumpCoolDown;
+    [SerializeField] private float airMultiplier;
+    [SerializeField] private bool readyToJump;
 
     void Start()
     {
@@ -46,12 +50,27 @@ public class PlayerMovement : MonoBehaviour
     {
         //get the input
         moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+
+        //when to jump
+        if (Input.GetButton("Jump") && readyToJump && grounded)
+        {
+            readyToJump = false;
+            Jump();
+            Invoke(nameof(ResetJump), jumpCoolDown);
+        }
     }
     private void Move()
     {
         //apply the input to movement of the rb
         moveDirection = orientation.forward * moveInput.z + orientation.right * moveInput.x;
+        if (grounded)
+        {
         rb.AddForce(moveDirection.normalized * playerSpeed * 10f, ForceMode.Force);
+        }
+        else if (!grounded)
+        {
+            rb.AddForce(moveDirection.normalized * playerSpeed * 10f * airMultiplier, ForceMode.Force);
+        }
         
         //if we press jump button jump
         //if (Input.GetButtonDown("Jump"))
@@ -68,5 +87,15 @@ public class PlayerMovement : MonoBehaviour
             Vector3 limitedVel = flatVel.normalized * playerSpeed;
             rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
         }
+    }
+    private void Jump()
+    {
+        //reset y velocity
+        rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+        rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+    }
+    private void ResetJump()
+    {
+        readyToJump = true;
     }
 }
