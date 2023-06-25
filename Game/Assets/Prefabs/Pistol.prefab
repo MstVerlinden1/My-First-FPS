@@ -140,6 +140,9 @@ GameObject:
   m_Component:
   - component: {fileID: 854725658096257313}
   - component: {fileID: 854725658096257312}
+  - component: {fileID: 6222393985726821215}
+  - component: {fileID: 4311997330008297520}
+  - component: {fileID: 3067532749304275380}
   m_Layer: 0
   m_Name: Pistol
   m_TagString: Untagged
@@ -180,6 +183,44 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &6222393985726821215
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854725658096257314}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.104858875, y: 0.25377166, z: 0.50742435}
+  m_Center: {x: 0.004150629, y: -0.072894275, z: 0.19730043}
+--- !u!114 &4311997330008297520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854725658096257314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10cf5db4bff871b43ac9f5f5b4109525, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &3067532749304275380
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854725658096257314}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1048589, y: 0.2537717, z: 0.5074244}
+  m_Center: {x: 0.004150629, y: -0.07289428, z: 0.1973004}
 --- !u!1 &854725658511610423
 GameObject:
   m_ObjectHideFlags: 0
