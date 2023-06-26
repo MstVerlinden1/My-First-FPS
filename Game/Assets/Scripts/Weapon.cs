@@ -2,9 +2,13 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    [SerializeField] private Collider player;
-    [SerializeField] private Rigidbody rb;
     [SerializeField] private KeyCode dropKey = KeyCode.G;
+    [SerializeField] private float trowDistance;
+    [SerializeField] private float damage;
+    [SerializeField] private float range;
+    private Camera playerCam;
+    private Collider player;
+    private Rigidbody rb;
     void Start()
     {
         player = GameObject.Find("Player").GetComponent<Collider>();
@@ -23,6 +27,7 @@ public class Weapon : MonoBehaviour
         {
             gameObject.transform.SetParent(GameObject.Find("Weapons").transform);
             gameObject.transform.localPosition = Vector3.zero;
+            gameObject.transform.localRotation = Quaternion.Euler(0,0,0);
             rb.isKinematic= true;
         }
     }
@@ -32,6 +37,11 @@ public class Weapon : MonoBehaviour
         {
             gameObject.transform.parent = null;
             rb.isKinematic= false;
+            rb.AddRelativeForce(Vector3.forward * trowDistance);
         }
+    }
+    private void shoot()
+    {
+
     }
 }
