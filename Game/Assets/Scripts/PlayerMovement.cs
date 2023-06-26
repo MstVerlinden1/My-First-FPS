@@ -71,12 +71,6 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.AddForce(moveDirection.normalized * playerSpeed * 10f * airMultiplier, ForceMode.Force);
         }
-        
-        //if we press jump button jump
-        //if (Input.GetButtonDown("Jump"))
-        //{
-        //    rb.AddForce(Vector3.up * jump, ForceMode.Impulse);
-        //}
     }
     private void SpeedControl()
     {

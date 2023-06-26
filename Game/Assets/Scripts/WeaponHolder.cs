@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class WeaponHolder : MonoBehaviour
-{
+{ //this doesnt do much yet
     [SerializeField] private Image _melee;
     [SerializeField] private Image _secondary;
     [SerializeField] private Image _primary;
