@@ -8,6 +8,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private float range;
     [SerializeField] private Camera playerCam;
     [SerializeField] private bool onPlayer;
+    [SerializeField] private float impactForce = 30f;
     private Collider player;
     private Rigidbody rb;
     void Start()
@@ -58,6 +59,19 @@ public class Weapon : MonoBehaviour
         if (Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out hit, range))
         {
             Debug.Log(hit.transform.name);
+            Target target = hit.transform.GetComponent<Target>();
+            if (target != null)
+            {
+                target.TakeDamage(damage);
+            }
+
+
+            if (hit.rigidbody != null)
+            {
+
+                hit.rigidbody.AddForce(-hit.normal * impactForce);
+
+            }
         }
     }
 }
