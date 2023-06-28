@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 854725657659517859}
   - component: {fileID: 854725657659517856}
   - component: {fileID: 854725657659517857}
-  - component: {fileID: 854725657659517858}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,19 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &854725657659517858
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 854725657659517868}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &854725657715015300
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 854725657715015419}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PistolObj
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,9 +127,9 @@ GameObject:
   - component: {fileID: 854725658096257313}
   - component: {fileID: 854725658096257312}
   - component: {fileID: 6222393985726821215}
-  - component: {fileID: 4311997330008297520}
   - component: {fileID: 3067532749304275380}
-  m_Layer: 0
+  - component: {fileID: 4311997330008297520}
+  m_Layer: 7
   m_Name: Pistol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,7 +144,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 854725658096257314}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.69, y: 1.99, z: 8.06}
+  m_LocalPosition: {x: 9.501, y: 1.428, z: 12.654}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -191,23 +177,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 854725658096257314}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.104858875, y: 0.25377166, z: 0.50742435}
   m_Center: {x: 0.004150629, y: -0.072894275, z: 0.19730043}
---- !u!114 &4311997330008297520
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 854725658096257314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10cf5db4bff871b43ac9f5f5b4109525, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &3067532749304275380
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -221,6 +195,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.1048589, y: 0.2537717, z: 0.5074244}
   m_Center: {x: 0.004150629, y: -0.07289428, z: 0.1973004}
+--- !u!114 &4311997330008297520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854725658096257314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10cf5db4bff871b43ac9f5f5b4109525, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropKey: 103
+  trowDistance: 2
+  damage: 10
+  range: 100
+  playerCam: {fileID: 0}
+  onPlayer: 0
+  impactForce: 30
 --- !u!1 &854725658511610423
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,8 +225,7 @@ GameObject:
   - component: {fileID: 854725658511610422}
   - component: {fileID: 854725658511610411}
   - component: {fileID: 854725658511610420}
-  - component: {fileID: 854725658511610421}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: grip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -305,19 +297,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &854725658511610421
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 854725658511610423}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &854725659202852902
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,7 +306,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 854725659202852901}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BulletSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -70,7 +70,6 @@ public class Weapon : MonoBehaviour
             {
 
                 hit.rigidbody.AddForce(-hit.normal * impactForce);
-
             }
         }
     }

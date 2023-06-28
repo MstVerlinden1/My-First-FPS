@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -8,18 +5,18 @@ public class PlayerMovement : MonoBehaviour
     //List of variables
     [SerializeField] private float playerSpeed = 5f;
     [SerializeField] private float jump;
-    [SerializeField] private Vector3 moveInput;
-    [SerializeField] private Vector3 moveDirection;
     [SerializeField] private Transform orientation;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float playerHeight;
     [SerializeField] private LayerMask whatIsGround;
-    [SerializeField] private bool grounded;
     [SerializeField] private float groundDrag;
     [SerializeField] private float jumpForce;
     [SerializeField] private float jumpCoolDown;
     [SerializeField] private float airMultiplier;
-    [SerializeField] private bool readyToJump;
+    private Vector3 moveInput;
+    private Vector3 moveDirection;
+    private bool grounded;
+    private bool readyToJump = true;
 
     void Start()
     {
