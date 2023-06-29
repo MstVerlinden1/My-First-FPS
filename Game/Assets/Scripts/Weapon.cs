@@ -1,6 +1,7 @@
+using System;
 using UnityEngine;
 
-public class Weapon : MonoBehaviour
+public partial class Weapon : MonoBehaviour
 {
     [SerializeField] private KeyCode dropKey = KeyCode.G;
     [SerializeField] private float trowDistance;
@@ -9,6 +10,8 @@ public class Weapon : MonoBehaviour
     [SerializeField] private Camera playerCam;
     [SerializeField] private bool onPlayer;
     [SerializeField] private float impactForce = 30f;
+    [SerializeField] private WeaponCategory category;
+    [SerializeField] private WeaponHolder wH;
     private Collider player;
     private Rigidbody rb;
     void Start()
@@ -17,6 +20,7 @@ public class Weapon : MonoBehaviour
         player = GameObject.Find("Player").GetComponent<Collider>();
         playerCam = GameObject.Find("Main Camera").GetComponent<Camera>();
         rb = GetComponent<Rigidbody>();
+        wH = GameObject.Find("Canvas(UI)").GetComponent<WeaponHolder>();
         //ignore physical collition between the gun and the player(so we dont walk over a weapon moving the player up in Y)
         Physics.IgnoreCollision(player.GetComponent<Collider>(), GetComponent<Collider>());
     }
@@ -39,6 +43,7 @@ public class Weapon : MonoBehaviour
     { //if player walk into the gun make it a child set the position and rotation, make it kinematic and set the onplayer var to true
         if (other.gameObject.layer == 6)
         {
+            wH.assignWeapon(category,"Pistol");
             gameObject.transform.SetParent(GameObject.Find("Weapons").transform);
             gameObject.transform.localPosition = Vector3.zero;
             gameObject.transform.localRotation = Quaternion.Euler(0,0,0);

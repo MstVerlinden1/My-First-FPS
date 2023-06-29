@@ -123,6 +123,28 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &120712258 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1925415509255533915, guid: 475c7f61d52a8034dbeecd95a41727c0, type: 3}
+  m_PrefabInstance: {fileID: 1925415507939433041}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &304539440 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1925415508647035660, guid: 475c7f61d52a8034dbeecd95a41727c0, type: 3}
+  m_PrefabInstance: {fileID: 1925415507939433041}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &336088894
 GameObject:
   m_ObjectHideFlags: 0
@@ -575,6 +597,17 @@ MonoBehaviour:
   mouseInput: {x: 0, y: 0, z: 0}
   orientation: {fileID: 589699772}
   sensitivity: {x: 250, y: 250}
+--- !u!114 &1209661606 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1925415508069004449, guid: 475c7f61d52a8034dbeecd95a41727c0, type: 3}
+  m_PrefabInstance: {fileID: 1925415507939433041}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1262001365
 GameObject:
   m_ObjectHideFlags: 0
@@ -687,6 +720,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1925415509283985654, guid: 475c7f61d52a8034dbeecd95a41727c0, type: 3}
+      propertyPath: _melee
+      value: 
+      objectReference: {fileID: 1209661606}
+    - target: {fileID: 1925415509283985654, guid: 475c7f61d52a8034dbeecd95a41727c0, type: 3}
+      propertyPath: _primary
+      value: 
+      objectReference: {fileID: 120712258}
+    - target: {fileID: 1925415509283985654, guid: 475c7f61d52a8034dbeecd95a41727c0, type: 3}
+      propertyPath: _secondary
+      value: 
+      objectReference: {fileID: 304539440}
     - target: {fileID: 8578096468617391746, guid: 475c7f61d52a8034dbeecd95a41727c0, type: 3}
       propertyPath: m_Name
       value: Player
@@ -791,6 +836,10 @@ PrefabInstance:
     - target: {fileID: 854725658096257314, guid: fac4d9ae79c47a4468c508a0999981ec, type: 3}
       propertyPath: m_Name
       value: Pistol
+      objectReference: {fileID: 0}
+    - target: {fileID: 4311997330008297520, guid: fac4d9ae79c47a4468c508a0999981ec, type: 3}
+      propertyPath: category
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fac4d9ae79c47a4468c508a0999981ec, type: 3}
