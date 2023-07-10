@@ -51,7 +51,7 @@ public partial class Weapon : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     { //if player walk into the gun make it a child set the position and rotation, make it kinematic and set the onplayer var to true
-        if (other.gameObject.layer == 6 && canPickup)
+        if (other.gameObject.layer == 6 && canPickup && !onPlayer)
         {
             gameObject.transform.SetParent(GameObject.Find("Weapons").transform);
             gameObject.transform.localPosition = Vector3.zero;
@@ -65,7 +65,7 @@ public partial class Weapon : MonoBehaviour
     { //remove the weapon as a child of the player set kinematic off so gravity works again add some force so the player trows it and set the var onplayer on false
         gameObject.transform.parent = null;
         rb.isKinematic= false;
-        rb.AddRelativeForce(Vector3.forward * trowDistance);
+        //rb.AddRelativeForce(cameraGameObject.transform.forward * trowDistance);
         onPlayer = false;
         canPickup= false;
     }
