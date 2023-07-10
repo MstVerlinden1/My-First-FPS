@@ -29,7 +29,7 @@ public class WeaponHolder : MonoBehaviour
         {
             print("Sprites/" + GunName + ".png");
             //assignImage.sprite = Resources.Load<Sprite>("Sprites/" + GunName + ".png");
-            assignImage.sprite = Resources.Load<Sprite>("Sprites/Pistol.png") as Sprite;
+            //assignImage.sprite = Resources.Load<Sprite>("Sprites/Pistol.png") as Sprite;
             _melee.sprite = assignImage.sprite;
             //assige image to seondary
         }

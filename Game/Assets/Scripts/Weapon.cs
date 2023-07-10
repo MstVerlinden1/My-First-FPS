@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public partial class Weapon : MonoBehaviour
@@ -12,6 +11,9 @@ public partial class Weapon : MonoBehaviour
     [SerializeField] private float impactForce = 30f;
     [SerializeField] private WeaponCategory category;
     [SerializeField] private WeaponHolder wH;
+    [SerializeField] private float pickupTime;
+    [SerializeField] private float pickupDelay;
+    [SerializeField] private bool canPickup;
     private Collider player;
     private Rigidbody rb;
     void Start()
@@ -38,17 +40,25 @@ public partial class Weapon : MonoBehaviour
         {
             shoot();
         }
-    }
-    private void OnTriggerEnter(Collider other)
-    { //if player walk into the gun make it a child set the position and rotation, make it kinematic and set the onplayer var to true
-        if (other.gameObject.layer == 6)
+        if (!onPlayer)
         {
-            wH.assignWeapon(category,"Pistol");
+            pickupTime += Time.deltaTime;
+            if (pickupTime > pickupDelay)
+            {
+                canPickup = true;
+            }
+        }
+    }
+    private void OnTriggerStay(Collider other)
+    { //if player walk into the gun make it a child set the position and rotation, make it kinematic and set the onplayer var to true
+        if (other.gameObject.layer == 6 && canPickup)
+        {
             gameObject.transform.SetParent(GameObject.Find("Weapons").transform);
             gameObject.transform.localPosition = Vector3.zero;
             gameObject.transform.localRotation = Quaternion.Euler(0,0,0);
             rb.isKinematic= true;
             onPlayer= true;
+            pickupTime = 0;
         }
     }
     private void DropWeapon()
@@ -57,6 +67,7 @@ public partial class Weapon : MonoBehaviour
         rb.isKinematic= false;
         rb.AddRelativeForce(Vector3.forward * trowDistance);
         onPlayer = false;
+        canPickup= false;
     }
     private void shoot()
     { //shoot a raycast from the player camera and debug what we hit
