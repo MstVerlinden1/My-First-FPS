@@ -35,7 +35,7 @@ public class InputHandler : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        camHolder = GetComponentInChildren<Camera>().gameObject;
+        camHolder = transform.GetChild(0).gameObject;
 
         Cursor.lockState = CursorLockMode.Locked;
     }
