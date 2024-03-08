@@ -9,8 +9,6 @@ public partial class Weapon : MonoBehaviour
     [SerializeField] private Camera playerCam;
     [SerializeField] private bool onPlayer;
     [SerializeField] private float impactForce = 30f;
-    [SerializeField] private WeaponCategory category;
-    [SerializeField] private WeaponHolder wH;
     [SerializeField] private float pickupTime;
     [SerializeField] private float pickupDelay;
     [SerializeField] private bool canPickup;
@@ -22,7 +20,6 @@ public partial class Weapon : MonoBehaviour
         player = GameObject.Find("Player").GetComponent<Collider>();
         playerCam = GameObject.Find("Main Camera").GetComponent<Camera>();
         rb = GetComponent<Rigidbody>();
-        wH = GameObject.Find("Canvas(UI)").GetComponent<WeaponHolder>();
         //ignore physical collition between the gun and the player(so we dont walk over a weapon moving the player up in Y)
         Physics.IgnoreCollision(player.GetComponent<Collider>(), GetComponent<Collider>());
     }
