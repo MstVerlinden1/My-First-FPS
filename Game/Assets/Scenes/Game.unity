@@ -918,7 +918,7 @@ Transform:
   m_GameObject: {fileID: 879365103}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5821557, y: 0.4215252, z: 0.5924214, w: 0.36393434}
-  m_LocalPosition: {x: 0.193, y: 0.069, z: 0.315}
+  m_LocalPosition: {x: 0.193, y: 0.078, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -941,9 +941,9 @@ MonoBehaviour:
     m_Bits: 1
   body: {fileID: 3742407835859388159}
   otherFoot: {fileID: 1546144539}
-  speed: 10
-  stepDistance: 0.5
-  stepLenth: 0.5
+  speed: 6
+  stepDistance: 0.25
+  stepLenth: 0.25
   stepHeight: 0.25
   footSpacing: 0.2
   lerp: 0
@@ -1183,7 +1183,7 @@ Transform:
   m_GameObject: {fileID: 1546144537}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5702813, y: 0.37940824, z: 0.6038712, w: 0.40763742}
-  m_LocalPosition: {x: -0.1632, y: 0.088, z: -0.354}
+  m_LocalPosition: {x: -0.1632, y: 0.083, z: 0.005}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1206,9 +1206,9 @@ MonoBehaviour:
     m_Bits: 1
   body: {fileID: 3742407835859388159}
   otherFoot: {fileID: 879365105}
-  speed: 10
-  stepDistance: 0.5
-  stepLenth: 0.5
+  speed: 6
+  stepDistance: 0.25
+  stepLenth: 0.25
   stepHeight: 0.25
   footSpacing: -0.2
   lerp: 0
@@ -1998,9 +1998,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.26
-  m_Height: 1.85
+  m_Height: 1.7
   m_Direction: 1
-  m_Center: {x: 0, y: 0.91, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!54 &919132149221371661
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2166,7 +2166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f986bee8f3a64264e8ffa46704ec4da7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 2
   sensitivity: 1
   maxForce: 7
   jumpForce: 2
