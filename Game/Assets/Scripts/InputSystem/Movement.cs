@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class InputHandler : MonoBehaviour
+public class Movement : MonoBehaviour
 {
     private Rigidbody rb;
     private GameObject camHolder;
@@ -84,7 +82,6 @@ public class InputHandler : MonoBehaviour
         if (Physics.SphereCast(GetComponent<CapsuleCollider>().transform.position, GetComponent<CapsuleCollider>().height / 4, Vector3.down, out hit, GetComponent<CapsuleCollider>().height / 4 + 0.01f))
         {
             grounded = true;
-            print(hit.distance);
         }
         else
         {

@@ -62,6 +62,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Grappling"",
+                    ""type"": ""Button"",
+                    ""id"": ""60d0bbfe-28a1-4bbf-ae63-0b6efa21027d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -147,7 +156,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""id"": ""80d07d64-db0e-4c0e-8b96-96c3bd438aa0"",
                     ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
-                    ""processors"": ""NormalizeVector2"",
+                    ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Look"",
                     ""isComposite"": false,
@@ -183,6 +192,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2bfe6207-d77b-4baf-b1b4-bc6d0ff3533a"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Grappling"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -744,6 +764,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_PlayerInput_Look = m_PlayerInput.FindAction("Look", throwIfNotFound: true);
         m_PlayerInput_Jump = m_PlayerInput.FindAction("Jump", throwIfNotFound: true);
         m_PlayerInput_Shoot = m_PlayerInput.FindAction("Shoot", throwIfNotFound: true);
+        m_PlayerInput_Grappling = m_PlayerInput.FindAction("Grappling", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -822,6 +843,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerInput_Look;
     private readonly InputAction m_PlayerInput_Jump;
     private readonly InputAction m_PlayerInput_Shoot;
+    private readonly InputAction m_PlayerInput_Grappling;
     public struct PlayerInputActions
     {
         private @PlayerControls m_Wrapper;
@@ -830,6 +852,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Look => m_Wrapper.m_PlayerInput_Look;
         public InputAction @Jump => m_Wrapper.m_PlayerInput_Jump;
         public InputAction @Shoot => m_Wrapper.m_PlayerInput_Shoot;
+        public InputAction @Grappling => m_Wrapper.m_PlayerInput_Grappling;
         public InputActionMap Get() { return m_Wrapper.m_PlayerInput; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -851,6 +874,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Shoot.started += instance.OnShoot;
             @Shoot.performed += instance.OnShoot;
             @Shoot.canceled += instance.OnShoot;
+            @Grappling.started += instance.OnGrappling;
+            @Grappling.performed += instance.OnGrappling;
+            @Grappling.canceled += instance.OnGrappling;
         }
 
         private void UnregisterCallbacks(IPlayerInputActions instance)
@@ -867,6 +893,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Shoot.started -= instance.OnShoot;
             @Shoot.performed -= instance.OnShoot;
             @Shoot.canceled -= instance.OnShoot;
+            @Grappling.started -= instance.OnGrappling;
+            @Grappling.performed -= instance.OnGrappling;
+            @Grappling.canceled -= instance.OnGrappling;
         }
 
         public void RemoveCallbacks(IPlayerInputActions instance)
@@ -1016,6 +1045,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
+        void OnGrappling(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
