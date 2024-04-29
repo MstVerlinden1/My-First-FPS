@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,6 +10,13 @@ public class Movement : MonoBehaviour
     private Vector2 move, look;
     private float lookRotation;
     [SerializeField] private bool grounded;
+    private bool freeze;
+
+    public bool Freeze
+    {
+        get { return freeze; }
+        set { freeze = value; }
+    }
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -24,6 +32,7 @@ public class Movement : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if (freeze) return;
         Move();
     }
     private void LateUpdate()
@@ -64,6 +73,7 @@ public class Movement : MonoBehaviour
     }
     private void Jump()
     {
+        if (freeze) return;
         Vector3 jumpForces = Vector3.zero;
         GroundCheck();
         //if grounded is true jump

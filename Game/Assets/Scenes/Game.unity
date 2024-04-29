@@ -1216,6 +1216,7 @@ MonoBehaviour:
   ableToGrapple:
     serializedVersion: 2
     m_Bits: 256
+  overshootYAxis: 21.24
   maxGrappleDistance: 25
   grappleDelayTime: 0.25
   grapplingCooldown: 1
