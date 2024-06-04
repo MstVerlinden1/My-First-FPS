@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Grappling : MonoBehaviour
+public class GrapplingLaunch : MonoBehaviour
 {
     [Header("References")]
     [SerializeField]private GameObject _camera;

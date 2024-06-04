@@ -10,7 +10,7 @@ public class Movement : MonoBehaviour
     private Vector2 move, look;
     private float lookRotation;
     [SerializeField] private bool grounded;
-    private bool freeze;
+    [SerializeField] private bool freeze;
 
     public bool Freeze
     {
@@ -57,8 +57,8 @@ public class Movement : MonoBehaviour
         //calculate forces
         Vector3 velocityChange = (targetVelocity - currentVelocity);
         velocityChange = new Vector3(velocityChange.x, 0, velocityChange.z);
-        //limit force
-        Vector3.ClampMagnitude(velocityChange, maxForce);
+        //limit force(removed for swinging)
+        //Vector3.ClampMagnitude(velocityChange, maxForce);
         //apply force
         rb.AddForce(velocityChange, ForceMode.VelocityChange);
     }
