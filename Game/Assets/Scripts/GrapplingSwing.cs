@@ -41,10 +41,10 @@ public class GrapplingSwing : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(camera.position, camera.forward, out hit, maxDistance, grappleable))
         {
-            if (!hit.transform.GetComponent<GrapplePointLogic>().CanGrapple)
-            {
-                FakeGrapple();
-            }
+           //// if (!hit.transform.GetComponent<GrapplePointLogic>().CanGrapple)
+           // {
+           //     FakeGrapple();
+           // }
 
             playerMove.Freeze = true;
             grapplePoint = hit.point;
